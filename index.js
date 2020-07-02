@@ -65,7 +65,7 @@ const addRemote = ({ app_name, buildpack }) => {
     execSync(
       "heroku create " +
         app_name +
-        "--manifest")
+        "--manifest"
     );
     console.log("Successfully created a new heroku app");
   }
