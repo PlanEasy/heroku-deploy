@@ -62,7 +62,7 @@ const addRemote = ({ app_name, buildpack }) => {
     execSync(
       "heroku create " +
         app_name +
-        "--manifest"
+        " --manifest"
     );
     execSync(
       `heroku stack:set container`
