@@ -54,9 +54,6 @@ const addRemote = ({ app_name, buildpack }) => {
     console.log("Added git remote heroku");
   } catch (err) {
     execSync(
-      `heroku stack:set container`
-    );
-    execSync(
       `heroku update beta`
     );
     execSync(
@@ -66,6 +63,9 @@ const addRemote = ({ app_name, buildpack }) => {
       "heroku create " +
         app_name +
         "--manifest"
+    );
+    execSync(
+      `heroku stack:set container`
     );
     console.log("Successfully created a new heroku app");
   }
