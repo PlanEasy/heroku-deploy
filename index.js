@@ -65,6 +65,9 @@ const addRemote = ({ app_name, buildpack }) => {
         " --manifest"
     );
     execSync(
+      "heroku addons:create heroku-postgresql:hobby-dev"
+    );
+    execSync(
       `heroku stack:set container`
     );
     console.log("Successfully created a new heroku app");
