@@ -23,6 +23,15 @@ const deploy = ({
 
   if (usedocker) {
     execSync(
+      `heroku stack:set container`
+    );
+    execSync(
+      `heroku update beta`
+    );
+    execSync(
+      `heroku plugins:install @heroku-cli/plugin-manifest`
+    );
+    execSync(
       `heroku container:push ${dockerHerokuProcessType} --app ${app_name}`,
       appdir ? { cwd: appdir } : null
     );
@@ -56,7 +65,7 @@ const addRemote = ({ app_name, buildpack }) => {
     execSync(
       "heroku create " +
         app_name +
-        (buildpack ? " --buildpack " + buildpack : "")
+        "--manifest")
     );
     console.log("Successfully created a new heroku app");
   }
